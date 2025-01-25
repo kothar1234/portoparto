@@ -1,0 +1,1198 @@
+* {
+    margin: 0;
+    padding: 0px;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: 'Poppins', sans-serif;
+}
+html {
+    font-size: 63%;
+    overflow-x: hidden;
+}
+:root {
+    --bg-color: black;
+    --second-bg-color: black;
+    --text-color: white;
+    --main-color: burlywood;
+    --header-bg-color: black;
+}
+.light-theme {
+    --bg-color: white;
+    --second-bg-color: #white;
+    --text-color: rgb(98, 62, 14);
+    --header-bg-color: rgb(165, 124, 42);
+}
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+   transition: background-color 0.5s ease, color 0.5s ease;
+}
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 3rem 9%;
+    background: var(--header-bg-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+}
+.switch {
+    font-size: 17px;
+    position: relative;
+    display: inline-block;
+    width: 3.5em;
+    height: 2em;
+    cursor: pointer;
+}
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.slider {
+    --background: #20262c;
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--background);
+    transition: 0.5s;
+    border-radius: 30px;
+}
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 1.4em;
+    width: 1.4em;
+    border-radius: 50%;
+    left: 10%;
+    bottom: 15%;
+    box-shadow: inset 8px -4px 0px 0px #ececd9, -4px 1px 4px 0px #dadada;
+    background: var(--background);
+    transition: 0.5s;
+}
+.decoration {
+    position: absolute;
+    content: "";
+    height: 2px;
+    width: 2px;
+    border-radius: 50%;
+    right: 20%;
+    top: 15%;
+    background: #e5f041e6;
+    backdrop-filter: blur(10px);
+    transition: all 0.5s;
+    box-shadow: -7px 10px 0 #e5f041e6, 8px 15px 0 #e5f041e6, -17px 1px 0 #e5f041e6,
+    -20px 10px 0 #e5f041e6, -7px 23px 0 #e5f041e6, -15px 25px 0 #e5f041e6;
+}
+
+input:checked~.decoration {
+    transform: translateX(-20px);
+    width: 10px;
+    height: 10px;
+    background: white;
+    box-shadow: -12px 0 0 white, -6px 0 0 1.6px white, 5px 15px 0 1px white,
+    1px 17px 0 white, 10px 17px 0 white;
+}
+input:checked+.slider {
+background-color: #5494de;
+}
+
+input:checked+.slider:before {
+    transform: translateX(100%);
+    box-shadow: inset 15px -4px 0px 15px #efdf2b, 0 0 10px 0px #efdf2b;
+}
+.logo {
+    font-size: 3rem;
+    color: var(--text-color);
+    font-weight: 800;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+.logo:hover {
+    transform: scale(1.1);
+}
+.navbar a {
+    font-size: 1.8rem;
+    color: white;
+    margin-left: 4rem;
+    font-weight: 500;
+    transition: 0.3s ease;
+    border-bottom: 3px solid transparent;
+}
+.navbar a:hover,
+.navbar a:active {
+    color: var(--main-color);
+
+    border-bottom: 3px solid var(--main-color);
+}
+#menu-icon {
+    font-size: 3.6rem;
+    color: var(--main-color);
+    display: none;
+}
+
+
+section {
+    min-height: 100vh;
+    padding: 10rem 9% 10rem;
+}
+
+.home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10rem;
+
+
+}
+
+span {
+    color: var(--main-color);
+
+}
+
+
+.logo span {
+    color: var(--main-color);
+}
+
+
+.home-content h3:nth-of-type(2) {
+    margin-bottom: 2rem;
+
+    font-size: 5rem;
+}
+
+
+
+
+.home-content {
+    position: relative;
+    top: 30px;
+}
+
+
+
+.home-content h1 {
+    font-weight: 700;
+    line-height: 1.3;
+    font-size: 8rem;
+}
+
+
+
+.home-img {
+    border-radius: 50%;
+
+}
+
+
+.home-img img {
+    position: relative;
+    top: 50px;
+    width: 32vw;
+    border-radius: 50%;
+    box-shadow: 0 0 25px var(--main-color);
+    cursor: pointer;
+}
+
+@keyframes slide-in {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(0%);
+    }
+}
+
+.box {
+    animation: slide-in 1s linear forwards;
+}
+
+.box {
+    animation: slide-in 1s linear forwards;
+    animation-delay: 0.5s;
+    /* Fördröjning på 0,5 sekunder */
+}
+
+
+
+.home-content p {
+    font-size: 1.8rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500%;
+}
+
+.socials-icons a {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 4rem;
+    height: 4rem;
+    background: transparent;
+    border: 0.2rem solid var(--main-color);
+    font-size: 2rem;
+    border-radius: 50%;
+    color: var(--main-color);
+    margin: 3rem 1.5rem 3rem 0;
+    transition: 0.3s ease;
+    text-decoration: none;
+}
+
+.socials-icons a:hover {
+    color: white;
+    transform: scale(1.2) translateY(-5px);
+    background-color: var(--main-color);
+    box-shadow: 0 0 25px var(--main-color);
+}
+
+.socials-icons i {
+    pointer-events: none;
+}
+
+.text-animation {
+    font-size: 34px;
+    font-weight: 600;
+    min-width: 280px;
+    color: var(--main-color);
+}
+.text-animation span {
+    position: relative;
+    font-size: 30px;
+    overflow: hidden;
+    white-space: nowrap;
+    border-right: 2px solid var(--main-color);
+    animation: typing 0.6s steps(20, end) 1, cursor 0.6s steps(1) infinite;
+}
+
+.text-animation span::before {
+    animation: words 8s linear infinite;  /* Justera hastigheten på ordanimationen */
+}
+
+@keyframes cursor {
+    50% {
+        border-right-color: transparent;
+    }
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes words {
+    0% {
+        content: ''; 
+    }
+    5% {
+        content: ''; 
+    }
+    20% {
+        content: ''; 
+    }
+    0% {
+        content: ''; 
+    }
+    0% {
+        content: ''; 
+    }
+}
+
+
+.heading {
+    text-align: center;
+    font-size: 8rem;
+}e
+
+.services {
+    background-color: var(--second-bg-color);
+
+}
+
+.services .tech p {
+    color: rgb(29, 3, 3);
+}
+
+.light-theme .services .tech p {
+    color: rgb(29, 3, 3);
+}
+
+
+.services h2 {
+    margin-bottom: 8rem;
+}
+
+
+.services h3 {
+    margin-bottom: 3rem;
+}
+
+
+
+
+.services-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.services-container .services-box {
+    flex: 1 1 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: var(--main-color);
+    padding: 3rem 2rem 4rem;
+    height: 550px;
+    border-radius: 2rem;
+    border: 3px solid transparent;
+    cursor: pointer;
+    transition: 0.5s ease;
+}
+
+.services-container .services-box:hover {
+    transform: scale(1.02);
+    background-color: white;
+    color: black;
+}
+
+.services-container .services-box:hover .tech {
+    color: white;
+}
+
+.tech {
+    color: white;
+}
+
+
+
+.services-box i {
+    font-size: 7rem;
+    color: black;
+    margin-bottom: 1rem;
+}
+
+.services-box h3 {
+    font-size: 2.6rem;
+}
+
+.services-box p {
+    font-size: 1.6rem;
+    margin: 1rem 0 3rem;
+}
+
+.services-box .btn {
+    background-color: white;
+}
+
+.services-box .btn:hover {
+    color: var(--main-color);
+}
+
+
+
+.bx.bx-code-alt {
+    position: relative;
+    top: 10px;
+    width: 50%;
+    margin: 30px;
+}
+
+.bx.bxs-palette {
+    position: relative;
+    top: 20px;
+    width: 50%;
+    margin: 30px;
+}
+
+.bx.bx-rocket {
+    position: relative;
+    bottom: 1px;
+    width: 50%;
+}
+
+
+.services-box p {
+    color: #333;
+    /* Ändra textfärg */
+    font-size: 16px;
+    /* Ändra storlek */
+    line-height: 1.6;
+    /* Justera radavstånd */
+    margin-bottom: 15px;
+    /* Lägg till utrymme under */
+}
+
+.services-box .tech1 {
+    color: black;
+    border: 1px solid brown;
+    position: relative;
+    bottom: 3px;
+    font-weight: bold;
+}
+
+
+.services-box .tech2 {
+    position: relative;
+    bottom: 14px;
+    color: black;
+    border: 1px solid brown;
+    font-weight: bold;
+}
+
+
+.services-box .tech3 {
+    position: relative;
+    top: 50px;
+    border: 1px solid brown;
+    color: black;
+    font-weight: bold;
+}
+
+.rubrik1 h3 {
+    position: relative;
+    bottom: 19px;
+
+}
+
+.rubrik1 p {
+    position: relative;
+    bottom: 29px;
+}
+
+.rubrik2 p {
+    position: relative;
+    bottom: 19px;
+
+}
+
+.rubrik3 p {
+    position: relative;
+    bottom: 29px;
+
+}
+
+
+
+
+
+.rubrik2 h3 {
+    position: relative;
+    bottom: 1px;
+
+}
+
+.rubrik3 h3 {
+    position: relative;
+    bottom: 13px;
+
+}
+
+
+
+
+
+
+
+
+
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--main-color);
+}
+
+
+
+
+
+
+
+::-webkit-scrollbar-track {
+    background-color: var(--bg-color);
+    width: 50px;
+}
+
+.projects {
+    padding-right: 10px;
+    margin-right: 90px;
+
+    background-color: var(--bg-color);
+}
+
+.projects h2 {
+    text-align: center;
+    font-size: 40px;
+    margin-bottom: 40px;
+}
+
+.project-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.project-card {
+    background-color: white;
+    color: black;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.project-card:hover {
+    transform: translateY(-10px);
+}
+
+.project-card img {
+    width: 100%;
+    height: auto;
+}
+
+.project-card h3 {
+    text-align: center;
+    padding: 10px;
+    font-size: 1.5rem;
+}
+
+.project-card p {
+    padding: 0 15px 20px;
+    font-size: 16px;
+    color: #555;
+}
+
+.project-card .btn {
+    display: block;
+    margin: 20px auto 15px;
+    text-align: center;
+    padding: 10px;
+    background-color: burlywood;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.project-card .btn:hover {
+    background-color: blueviolet;
+}
+
+.timeline-section {
+    min-height: 100vh;
+    padding: 100px 15px;
+    background: var(--bg-color);
+
+}
+
+
+.timeline-section h2 {
+
+    margin-bottom: 5rem;
+}
+
+
+.timeline-items {
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+
+
+
+
+
+.timeline-items::before {
+
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 100%;
+    background-color: var(--main-color);
+    left: calc(50% - 1px);
+
+}
+
+
+
+
+
+
+
+.timeline-section {
+    min-height: 100vh;
+    padding: 100px 15px;
+    background: var(--bg-color)
+}
+
+
+
+
+.timeline-section h2 {
+    margin-bottom: 5rem;
+}
+
+
+
+
+.timeline-section h3 {
+    margin-bottom: 5rem;
+    text-align: start;
+}
+
+
+
+.timeline-section p {
+    margin-bottom: 5rem;
+    text-align: start;
+}
+
+
+.timeline-items {
+    max-width: 1000px;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+
+
+.timeline-items::before {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 100%;
+    background-color: var(--main-color);
+    left: calc(50% - 1px);
+
+}
+
+
+
+
+.timeline-item {
+
+    margin-bottom: 40px;
+    width: 100%;
+    position: relative;
+
+}
+
+
+
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-item:nth-child(odd) {
+    padding-right: calc(50% + 30px);
+    text-align: right;
+}
+
+
+.timeline-item:nth-child(even) {
+    padding-left: calc(50% + 30px);
+}
+
+
+.timeline-dot {
+    height: 21px;
+    width: 21px;
+    background-color: var(--main-color);
+
+    position: absolute;
+    left: calc(50% - 8px);
+    border-radius: 50%;
+    top: 10px;
+
+}
+
+
+.timeline-date {
+    color: white;
+    font-weight: 800;
+    font-size: 20px;
+    margin: 6px 0 15px;
+}
+
+
+.timeline-content {
+    background-color: var(--main-color);
+    padding: 30px;
+    border-radius: 1em;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+
+.timeline-content:hover {
+    transform: scale(1.05);
+}
+
+.timeline-content h3 {
+    font-size: 20px;
+    color: white;
+    margin: 0 0 10px;
+    text-transform: capitalize;
+    font-weight: 500%;
+}
+
+
+.timeline-content p {
+    color: white;
+    opacity: 0.8;
+    font-size: 16px;
+    font-weight: 400px;
+    line-height: 22px;
+}
+
+
+.light-theme #contact form {
+    background-color: burlywood;
+    /* Ljusbrun bakgrund */
+    color: rgb(98, 62, 14);
+    /* Mörk textfärg */
+    border: 1px solid rgb(165, 124, 42);
+    /* Kantlinje */
+}
+
+.light-theme #contact input,
+.light-theme #contact textarea {
+    background-color: white;
+    /* Ljus bakgrund */
+    color: rgb(231, 223, 213);
+    /* Textfärg */
+    border: 1px solid rgb(165, 124, 42);
+    /* Kantlinje */
+}
+
+.light-theme #contact .btn {
+    background-color: rgb(165, 124, 42);
+    color: white;
+}
+
+.light-theme #contact .btn:hover {
+    background-color: rgb(233, 210, 194);
+}
+
+
+
+
+
+form {
+    background-color: black;
+    padding: 40px;
+    position: relative;
+    left: 570px;
+    border-radius: 42px;
+    width: 60%;
+}
+
+form:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+}
+
+.inputs-form input,
+.inputs-form textarea {
+    width: 100%;
+    border: 4px solid purple;
+    box-shadow: 0 0 10px 20px;
+    padding: 14px;
+    background-color: black;
+    margin-bottom: 20px;
+    border-radius: 28px;
+    font-size: 16px;
+}
+
+.inputs-form input:focus,
+.inputs-form textarea:focus {
+    background-color: white;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 150px;
+    background-color: black;
+}
+
+button.btn {
+    width: 100%;
+    padding: 16px;
+    font-size: 17px;
+    color: palevioletred;
+    background-color: black;
+    border: 2px solid black;
+
+    border-radius: 200px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0px 0px 10px 7px;
+}
+
+
+
+
+
+#contact h2 {
+    padding: 15px;
+    width: 90%;
+    font-size: 56px;
+    position: relative;
+    left: 400px;
+    bottom: 40px;
+}
+
+
+
+#contact input,
+#contact textarea {
+    background-color: black;
+
+    color: bisque;
+    /* Gör texten brun */
+    border: 1px solid burlywood;
+    /* Brun kantlinje */
+}
+
+#contact input::placeholder,
+#contact textarea::placeholder {
+    color: burlywood;
+}
+
+#contact .btn {
+    background-color: burlywood;
+    /* Gör knappen brun */
+    color: black;
+    /* Gör texten på knappen vit */
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+#contact .btn:hover {
+    background-color: burlywood;
+    ;
+}
+
+
+
+
+
+@media (max-width: 800px) {
+    html {
+        font-size: 50%; /* Anpassa för mindre skärmar */
+    }
+
+    .header {
+        padding: 2rem;
+    }
+
+    #menu-icon {
+        display: block; /* Visa menykikon för små skärmar */
+    }
+
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: var(--header-bg-color);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        transform: translateX(-100%);
+        transition: transform 0.5s ease;
+    }
+
+    .navbar.active {
+        transform: translateX(0); /* Visa menyn */
+    }
+
+    .navbar a {
+        font-size: 2.4rem;
+        margin: 0;
+    }
+
+    .go-back-btn {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 30px;
+        cursor: pointer;
+        padding: 10px;
+        transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .go-back-btn:hover {
+        transform: scale(1.2); /* Gör knappen 20% större när man hovrar */
+        color: #f00; /* Färgen ändras till röd vid hovring */
+    }
+
+    .home {
+        flex-direction: column;
+        text-align: center;
+        gap: 2rem;
+    }
+
+    .home-img img {
+        width: 70%;
+    }
+
+    .services-container {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .project-container {
+        grid-template-columns: 1fr;
+    }
+
+    form {
+        width: 90%;
+        left: 5%;
+    }
+    .timeline-section {
+        padding: 50px 15px; 
+    }
+
+    .timeline-items {
+        flex-direction: column; 
+    }
+
+    .timeline-item {
+        width: 99%; 
+        margin-bottom: 20px;
+    }
+
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        padding-left: 0;
+        padding-right: 0; 
+        text-align: center; 
+    }
+
+    .timeline-content {
+        padding: 20px;
+    }
+
+    .timeline-content h3 {
+        font-size: 18px; 
+    }
+
+    .timeline-content p {
+        font-size: 14px;
+    }
+
+
+
+    .timeline-dot {
+        position:relative;
+         top: 1px;
+     
+     }
+     
+     
+     .timeline-date {
+       position:relative;
+         bottom: 28px;
+         right:40px;
+     
+     }    
+
+    #contact h2 {
+        font-size: 4rem;
+        left: 0;
+        text-align: center;
+    }
+   #contact{
+       width:120%;
+       position:relative;
+       right:60px;
+  }
+    
+}
+
+@media (max-width: 500px) {
+    .header {
+        padding: 1.5rem;
+    }
+
+    .home-content h1 {
+        font-size: 4rem;
+    }
+
+    .home-content h3 {
+        font-size: 2.4rem;
+    }
+
+    .home-img img {
+        width: 80%;
+    }
+
+    .go-back-btn {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 30px;
+        cursor: pointer;
+        padding: 10px;
+        transition: transform 0.3s ease, color 0.3s ease;
+    }
+
+    .go-back-btn:hover {
+        transform: scale(1.2); /* Gör knappen 20% större när man hovrar */
+        color: #f00; /* Färgen ändras till röd vid hovring */
+    }
+
+    .services-container {
+        gap: 1.5rem;
+    }
+
+    .project-card {
+        font-size: 1.4rem;
+        position: relative;
+        left: 30px;
+    }
+
+    .projects h2 {
+        position: relative;
+        left: 30px;
+    }
+
+
+  .timeline-section {
+        padding: 50px 15px; 
+    }
+
+    .timeline-items {
+        flex-direction: column; 
+    }
+
+    .timeline-item {
+        width: 100%; 
+        margin-bottom: 20px;
+    }
+
+    .timeline-item:nth-child(odd),
+    .timeline-item:nth-child(even) {
+        padding-left: 0;
+        padding-right: 0; 
+        text-align: center; 
+    }
+
+    .timeline-content {
+        padding: 20px;
+    }
+
+    .timeline-content h3 {
+        font-size: 18px; 
+    }
+
+    .timeline-content p {
+        font-size: 14px;
+    }
+
+
+
+    .timeline-dot {
+        position:relative;
+         top: 1px;
+     
+     }
+     
+     
+     .timeline-date {
+       position:relative;
+         bottom: 28px;
+         right:40px;
+     
+     }    
+       #contact{
+        position:relative;
+        right:1px;
+        width:100%;
+}  
+      #contact h2{
+text-align:center;       
+}  
+     }  
+     
+
+
+
+@media (min-width: 801px) {
+    .go-back-btn {
+        display: none; /* Döljer go-back-knappen på större skärmar */
+    }
+    #contact{
+        position:relative;
+        right:530px;
+        width:140%;
+}  
+      #contact h2{
+text-align:center;       
+}  
+
+}
+
+@media (min-width: 1200px) {
+    .timeline-items {
+        flex-direction: row;
+        justify-content: space-between;
+        flex-wrap: wrap;
+    }
+
+    .timeline-item {
+        flex: 1 1 45%; /* Varje item tar upp 45% av bredden */
+        margin-bottom: 20px;
+    }
+
+    .timeline-dot {
+        width: 15px;
+        height: 15px;
+    }
+
+    .timeline-content {
+        max-width: 100%;
+    }
+      #contact{
+        position:relative;
+        right:1px;
+        width:100%;
+}  
+      #contact h2{
+text-align:center;       
+}  
+}
